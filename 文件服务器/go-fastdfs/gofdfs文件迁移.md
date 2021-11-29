@@ -4,25 +4,20 @@
 ### 打开迁移配置项
     将配置文件conf/cfg.json中enable_migrate参数值改为true，启用迁移（默认为false)
     重启配置：curl http://xxx.xxx.xxx.xxx:31507/group1/reload?action=reload
-    重启配置：curl http://172.16.4.41:31507/group1/reload?action=reload
 ### 不同服务器上文件复制
 ###### 在fastdfs服务器上执行
-    sudo scp -r /home/dfs/data/* 172.16.4.41:/opt/fileserver/files/M00
+    sudo scp -r /home/dfs/data/* xxx.xxx.xxx.xxx:/opt/fileserver/files/M00
 ### 同一个服务器上文件复制
     cp -r /home/dfs/data /opt/fileserver/files/M00
 ### 修复文件信息
     curl http://xxx.xxx.xxx.xxx:31507/group1/repair_fileinfo
-    curl http://172.16.4.41:31507/group1/repair_fileinfo
 ### 修复文件状态
     curl http://xxx.xxx.xxx.xxx:31507/group1/repair_stat?date=20211129
-    curl http://172.16.4.41:31507/group1/repair_stat?date=20211129
 ### 备份md5文件
     curl http://xxx.xxx.xxx.xxx:31507/group1/backup?date=20211129
-    curl http://172.16.4.41:31507/group1/backup?date=20211129
 ### 关闭迁移配置项
     将配置文件conf/cfg.json中enable_migrate参数值改为false
     重启配置：curl http://xxx.xxx.xxx.xxx:31507/group1/reload?action=reload
-    重启配置：curl http://172.16.4.41:31507/group1/reload?action=reload
 ### 拷贝md5文件
     在fileserver/data文件夹下找到刚刚备份文件设置的date文件夹(如：20211129),将改文件夹下的files.md5拷贝出来
 ### 执行数据库脚本
